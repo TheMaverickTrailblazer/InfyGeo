@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html ng-app="InfyGeo">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="app.js"></script>
+</head>
+<body>
+    <div ng-controller="HomeController">
+        <h1>{{Title}}</h1>
+        <h2>{{Description}}</h2>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <a href="Features/People/People.html">
+                        <h3>People</h3>
+                        <span>You can find nearby Infosys colleagues</span>
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+                    <a href="Features/Offices/Offices.html">
+                        <h3>Offices</h3>
+                        <span>You can find nearby important Offices</span>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Features/KeyInfo/KeyInfo.html">
+                        <h3>Key Information</h3>
+                        <span>A forum to explore nearby key information </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
