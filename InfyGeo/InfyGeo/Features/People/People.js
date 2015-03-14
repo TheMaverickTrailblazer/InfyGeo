@@ -8,5 +8,6 @@
       ];
 
       $scope.Title = "Nearby People";
+      $scope.Location = "Plainsboro";
 
   }]);

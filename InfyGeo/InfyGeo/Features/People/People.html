@@ -1,16 +1,7 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="InfyGeo">
-<head>
-    <title></title>
-    <script src="../../Scripts/angular.js"></script>
-    <link href="../../Content/bootstrap.css" rel="stylesheet" />
-    <script src="People.js"></script>
-
-</head>
-<body>
+﻿<body>
     <div ng-controller="PeopleController">
         <label>{{Title}}</label>
-
+        <div class="text-right">{{Location}}</div>
         <div ng-repeat="person in People">
             <div class="row">
                 <div class="col-md-2">{{person.Name}}</div>
