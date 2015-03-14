@@ -10,11 +10,16 @@
                $routeProvider.when('/itravel', { templateUrl: 'Shared/iTravel.html' })
                $routeProvider.when('/payworld', { templateUrl: 'Shared/Payworld.html' })
            })
-           .controller('HomeController', ['$scope', function ($scope) {
+           .controller('HomeController', ['$scope', '$rootScope', function ($scope, $rootScope) {
                $scope.Title = "InfoGeo";
                $scope.Description = "Plaform to provide nearby features for Infosys employees who travel abroad.";
                $scope.Location = "Plainsboro";
                $scope.isLocationEditable = false;
+               $rootScope.abc = "test abc";
+
+               $scope.$watch('Location', function () {
+                   //alert('hey, Location has changed!');
+               });
 
                $scope.setLocation = function () {
                    $scope.isLocationEditable = false;
@@ -23,9 +28,13 @@
                    $scope.isLocationEditable = true;
                }
 
-           }]).controller('PeopleController', ['$scope', '$http', function ($scope, $http) {
+           }]).controller('PeopleController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
                $scope.Location = $scope.Location;
+
+               $scope.$watch('$scope.Location', function () {
+                   //alert('hey, Location has changed!');
+               });
 
                $scope.NearbyTitle = "Nearby People";
                $scope.CompanionTitle = "Travel Companion";
