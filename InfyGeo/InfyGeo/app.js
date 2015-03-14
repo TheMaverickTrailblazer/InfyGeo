@@ -19,4 +19,20 @@
                ];
 
                $scope.Title = "Nearby People";
-           }]);
+           }]).controller('KeyInfoController', ['$scope', '$http', function ($scope, $http) {
+               var location = $scope.Location;
+               var url = "http://dev.api.ean.com/ean-services/rs/hotel/v3/list?cid=38998&apiKey=53s3gvvk29x99zvt54zmnnzh&minorRev=28&customerUserAgent=WEB_SITE&customerIpAddress=73.193.252.64&locale=en_US&currencyCode=USD&city=" + location + "&stateProvinceCode=NJ&countryCode=US";
+               $http.get(url).
+                                 success(function (data, status, headers, config) {
+                                     // this callback will be called asynchronously
+                                     // when the response is available
+                                     $scope.hotels = data.HotelListResponse.HotelList.HotelSummary;
+
+                                 }).
+                                 error(function (data, status, headers, config) {
+                                     // called asynchronously if an error occurs
+                                     // or server returns response with an error status.
+                                     alert('an error occured');
+                                 });
+           }])
+;
