@@ -1,22 +1,19 @@
-﻿<body>
-    <div ng-controller="PeopleController">
-        <label>{{Title}}</label>
-        <div class="text-right">{{Location}}</div>
-        <div ng-repeat="person in People">
-            <div class="row">
-                <div class="col-md-2">{{person.Name}}</div>
-                <div class="col-md-2">
-                    {{person.Email}}
-                </div>
-                <div class="col-md-2">
-                    {{person.City}}
-                </div>
-                <div class="col-md-2">
-                    {{person.Distance}}
-                </div>
+﻿<div ng-controller="PeopleController" style="width:400px;">
 
-            </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{Title}}</th>
+            </tr>
+            <tr ng-repeat="person in People">
+                <td class="icon-bar">
+                    <span class="text-info"><b>{{person.Name}}</b></span>  <br />
+                    {{person.Email}}, {{person.City}} ({{person.Distance}} miles)
+                </td>
+            </tr>
+        </thead>
 
-        </div>
-</body>
-</html>
+    </table>
+</div>
+
+<a href="/" class="btn btn-info">Back</a>
