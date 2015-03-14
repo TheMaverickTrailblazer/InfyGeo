@@ -6,8 +6,10 @@
 </head>
 <body>
     <div ng-controller="HomeController">
-        <div><h1>{{Title}}</h1><p class="">{{Location}}</p></div>
-        <p>{{Description}}</p>
+        <div class="text-center col-xs-12">
+            <div><h1>{{Title}}</h1><p class="glyphicon-globe">{{Location}}</p></div>
+            <p>{{Description}}</p>
+        </div>
         <div ng-view></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
