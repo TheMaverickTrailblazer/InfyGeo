@@ -38,6 +38,7 @@
     <Content Include="iTravel.html" />
     <Content Include="Features\Shared\Menu.html" />
     <Content Include="Payworld.html" />
+    <Content Include="Scripts\search.js" />
     <Content Include="Sparsh.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="route.js" />

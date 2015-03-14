@@ -4,6 +4,7 @@
     <title>InfyGeo</title>
     <link rel=" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href="Content/app.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places,visualization&v=3.exp"></script>
 </head>
 <body>
     <div ng-controller="HomeController">
@@ -25,9 +26,10 @@
             <p>{{Description}}</p>
         </div>
         <div ng-view></div>
-    </div>
+    </div>    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="Scripts/search.js"></script>
     <!--<script src="Features/People/People.js"></script>-->
 </body>
 </html>

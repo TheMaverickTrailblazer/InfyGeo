@@ -52,4 +52,7 @@
                                      // or server returns response with an error status.
                                      alert('an error occured');
                                  });
+           }]).controller('OfficeController', ['$scope', function ($scope) {
+               searchLocation = $scope.Location;
+               initialize(searchLocation);
            }]);

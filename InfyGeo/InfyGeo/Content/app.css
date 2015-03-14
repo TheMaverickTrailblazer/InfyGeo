@@ -18,3 +18,10 @@ padding:10px;
 margin:15px;
 overflow:hidden;
 }
+
+#map {
+  height:400px;
+  width:100%;
+  border:6px solid #dedede;
+  margin:0 auto;
+}
