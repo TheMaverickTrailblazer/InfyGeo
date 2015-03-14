@@ -1,19 +1,41 @@
-﻿<div ng-controller="PeopleController" style="width:400px;">
+﻿<div ng-controller="PeopleController" class="container">
+    <div class="row">
+        <div class="col-xs-6 col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{NearbyTitle}}</th>
+                    </tr>
+                    <tr ng-repeat="person in People | orderBy: 'Distance'">
+                        <td class="icon-bar">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="text-info"><b> {{person.Name}}</b></span>  <br />
+                            {{person.Email}}, {{person.City}} ({{person.Distance}} miles) <br />
+                            <a href="">Connect</a>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col-xs-6 col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{CompanionTitle}}</th>
+                    </tr>
+                    <tr ng-repeat="person in Comapanions | orderBy: 'Date'">
+                        <td class="icon-bar">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="text-info"><b>{{person.Name}}</b></span>  <br />
+                            {{person.Date}}, {{person.Airport}} {{person.Arrival}} from {{person.Departure}}
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>{{Title}}</th>
-            </tr>
-            <tr ng-repeat="person in People">
-                <td class="icon-bar">
-                    <span class="text-info"><b>{{person.Name}}</b></span>  <br />
-                    {{person.Email}}, {{person.City}} ({{person.Distance}} miles)
-                </td>
-            </tr>
-        </thead>
-
-    </table>
+    <div class="text-center">
+        <a href="/" class="btn btn-info">Back</a>
+    </div>
 </div>
-
-<a href="/" class="btn btn-info">Back</a>

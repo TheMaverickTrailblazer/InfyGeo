@@ -1,0 +1,6 @@
+﻿[
+    { "Name": "Karthik Jambulingam", "City": "Plainsboro", "Distance": 55, "Email": "karthik_j02@infosys.com" },
+    { "Name": "Amit Desai", "City": "Hopewell", "Distance": 75, "Email": "Amit.Desai@infosys.com" },
+    { "Name": "Mahalingam Kumaresan", "City": "New York", "Distance": 10, "Email": "Mahalingam_k03@infosys.com" },
+    { "Name": "Abhilash Nair", "City": "Jersey City", "Distance": 20, "Email": "Abhilash.Nair@infosys.com" }
+]

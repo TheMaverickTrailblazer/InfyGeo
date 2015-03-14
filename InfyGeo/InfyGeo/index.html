@@ -3,11 +3,25 @@
 <head>
     <title>InfyGeo</title>
     <link rel=" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="Content/app.css" rel="stylesheet" />
 </head>
 <body>
     <div ng-controller="HomeController">
         <div class="text-center col-xs-12">
-            <div><h1>{{Title}}</h1><p class="glyphicon-globe">{{Location}}</p></div>
+            <div>
+                <h1>{{Title}}</h1>
+                <div ng-show="isLocationEditable" class="form-group">
+                    <input type="text" ng-model="Location" placeholder="Change location" />
+                    <button ng-click="setLocation()">Set</button>
+                </div>
+                <div ng-show="!isLocationEditable" ng-click="ChangeLocation()">
+                    <div class="glyphicon glyphicon-map-marker"></div>
+
+                    <span>
+                        {{Location}}
+                    </span>
+                </div>
+            </div>
             <p>{{Description}}</p>
         </div>
         <div ng-view></div>

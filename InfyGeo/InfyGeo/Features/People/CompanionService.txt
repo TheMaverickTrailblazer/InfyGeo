@@ -1,0 +1,23 @@
+﻿[
+    {
+        "Name": "Abhishek Raj",
+        "Airport": "JFK",
+        "Departure": "Mumbai",
+        "Arrival": "Newyork, NY",
+        "Date":"6/28/2015"
+    },
+  {
+      "Name": "Puneet Patel",
+      "Airport": "EWR",
+      "Departure": "Bangalore",
+      "Arrival": "Newark, NJ",
+      "Date": "3/22/2015"
+  },
+    {
+      "Name": "Priya Venkat",
+      "Airport": "CLT",
+      "Departure": "Chennai",
+      "Arrival": "Charlotte, NC",
+      "Date": "4/11/2015"
+    }
+]
