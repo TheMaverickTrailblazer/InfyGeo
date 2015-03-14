@@ -10,30 +10,25 @@
                $routeProvider.when('/itravel', { templateUrl: 'Shared/iTravel.html' })
                $routeProvider.when('/payworld', { templateUrl: 'Shared/Payworld.html' })
            })
-           .controller('HomeController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+           .controller('HomeController', ['$scope', 'LocationService', function ($scope, LocationService) {
                $scope.Title = "InfoGeo";
                $scope.Description = "Plaform to provide nearby features for Infosys employees who travel abroad.";
                $scope.Location = "Plainsboro";
                $scope.isLocationEditable = false;
-               $rootScope.abc = "test abc";
-
-               $scope.$watch('Location', function () {
-                   //alert('hey, Location has changed!');
-               });
 
                $scope.setLocation = function () {
                    $scope.isLocationEditable = false;
+                   LocationService.changeLocation($scope.Location);
                }
-               $scope.ChangeLocation = function () {
+               $scope.AllowChangeLocation = function () {
                    $scope.isLocationEditable = true;
                }
 
-           }]).controller('PeopleController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+           }]).controller('PeopleController', ['$scope', '$http', 'LocationService', function ($scope, $http, LocationService) {
 
-               $scope.Location = $scope.Location;
-
-               $scope.$watch('$scope.Location', function () {
-                   //alert('hey, Location has changed!');
+               //$scope.Location = "";
+               $scope.$on('locationChanged', function () {
+                   $scope.Location = LocationService.service.Location;
                });
 
                $scope.NearbyTitle = "Nearby People";
@@ -64,4 +59,13 @@
            }]).controller('OfficeController', ['$scope', function ($scope) {
                searchLocation = $scope.Location;
                initialize(searchLocation);
-           }]);
+           }]).factory('LocationService', function ($rootScope) {
+               var service = {};
+               service.Location = "";
+
+               service.changeLocation = function (value) {
+                   this.Location = value;
+                   $rootScope.$broadcast("locationChanged");
+               }
+               return service;
+           });
