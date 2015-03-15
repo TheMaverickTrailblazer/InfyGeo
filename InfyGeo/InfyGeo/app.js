@@ -150,6 +150,7 @@
                    var rad10Elem = document.getElementById("rad10");
                    var rad15Elem = document.getElementById("rad15");
                    var rad20Elem = document.getElementById("rad20");
+                   var results = document.getElementById("results");
                    var radius = 0;
                    radius = (rad5Elem.checked) ? 5 * 1.6 * 1000 : 0;
                    if (radius == 0)
@@ -159,7 +160,7 @@
                    if (radius == 0)
                        radius = (rad20Elem.checked) ? 20 * 1.6 * 1000 : 0;
 
-                   initialize(searchLocation, 'apartments', '', radius);
+                   initialize(searchLocation, 'apartments', '', radius, results);
                }
 
            }]).controller('OfficeController', ['$scope', function ($scope) {

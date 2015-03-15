@@ -21,7 +21,7 @@ overflow:hidden;
 
 #map {
   height:400px;
-  width:100%;
-  border:6px solid #dedede;
+  width:70%;
+  border:3px solid #b7cee2;
   margin:0 auto;
 }
