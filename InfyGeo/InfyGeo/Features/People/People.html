@@ -3,8 +3,9 @@
     <div class="row">
         <div class="col-xs-6 col-md-6">
             <div class="panel panel-info">
-                <div class="panel-heading">{{NearbyTitle}} <span class="badge">{{LocalPeople.length}}</span> 
-                
+                <div class="panel-heading">
+                    {{NearbyTitle}} <span class="badge">{{LocalPeople.length}}</span>
+
                 </div>
                 <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
                     <table class="table table-striped">
@@ -20,6 +21,7 @@
 
 
                                     <a href="mailto:{{person.Email}}" class="btn-link"> <span class="label label-info">Connect</span></a>
+                                    <a href="" class="btn-link" ng-click="showMap('{{person.City}}')"><span class="label label-info">Locate</span></a>
                                 </td>
                                 <td>
                                     <a href="#" class="thumbnail" style="border:0">
@@ -46,30 +48,30 @@
             </div>
         </div>
         <div class="col-xs-6 col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">{{CompanionTitle}}</div>
-                <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
-
-                    <table class="table table-striped">
-                        <thead>
-                            <tr ng-repeat="person in Comapanions | orderBy: 'Date'">
-                                <td class="icon-bar">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    <span class="text-info"><b>{{person.Name}}</b></span>  <br />
-                                    {{person.Date}}, {{person.Airport}} {{person.Arrival}} from {{person.Departure}}
-                                </td>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div class="panel-footer"><a href="">Load more...</a></div>
+            <div>
+               
+                <div id="map"></div>
             </div>
         </div>
     </div>
 
-    <div>
-        <a href="" class="btn-info" ng-click="showMap()">map</a>
-        <div id="map"></div>
+    <div class="panel panel-info">
+        <div class="panel-heading">{{CompanionTitle}}</div>
+        <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr ng-repeat="person in Comapanions | orderBy: 'Date'">
+                        <td class="icon-bar">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="text-info"><b>{{person.Name}}</b></span>  <br />
+                            {{person.Date}}, {{person.Airport}} {{person.Arrival}} from {{person.Departure}}
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="panel-footer"><a href="">Load more...</a></div>
     </div>
     <div class="text-center">
         <a href="/" class="btn btn-info">Back</a>

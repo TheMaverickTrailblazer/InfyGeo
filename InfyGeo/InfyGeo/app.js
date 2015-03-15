@@ -50,9 +50,9 @@
                    return person.Distance < 50 || person.Location == $scope.Location;
                };
 
-               $scope.showMap = function () {
-                   alert($scope.Location);
-                   initialize($scope.Location, null, null, '', '',true);
+               $scope.showMap = function (city) {
+                  // alert(city);
+                   initialize(city, null, null, '', '', true);
                };
 
            }]).controller('KeyInfoController', ['$scope', '$http', function ($scope, $http) {
