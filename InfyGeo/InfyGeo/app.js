@@ -13,7 +13,7 @@
            .controller('HomeController', ['$scope', 'LocationService', function ($scope, LocationService) {
                $scope.Title = "InfoGeo";
                $scope.Description = "Plaform to provide nearby features for Infosys employees who travel abroad.";
-               $scope.Location = "Plainsboro";
+               $scope.Location = "Princeton";
                $scope.isLocationEditable = false;
 
                $scope.setLocation = function () {
@@ -37,6 +37,11 @@
                $http.get('Features/People/PeopleService.txt').success(function (data) {
                    $scope.People = data;
                });
+
+               $scope.filterPeople = function (person) {
+                   //alert($scope.Location);
+                   return person.Distance < 50 || person.Location == $scope.Location;
+               };
 
                $http.get('Features/People/CompanionService.txt').success(function (data) {
                    $scope.Comapanions = data;

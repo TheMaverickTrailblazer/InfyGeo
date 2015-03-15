@@ -1,17 +1,25 @@
 ﻿<div ng-controller="PeopleController" class="container">
-    
+
     <div class="row">
         <div class="col-xs-6 col-md-6">
             <div class="panel panel-info">
-                <div class="panel-heading">{{NearbyTitle}}</div>
-                <div class="panel-body">
+                <div class="panel-heading">{{NearbyTitle}} <span class="badge">{{LocalPeople.length}}</span> 
+                
+                </div>
+                <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
                     <table class="table table-striped">
                         <thead>
-                            <tr ng-repeat="person in People | orderBy: 'Distance'">
+                            <tr ng-repeat="person in LocalPeople = (People| filter:filterPeople) | orderBy: Sortddl">
                                 <td class="icon-bar">
                                     <span class="text-info"><b> {{person.Name}}</b></span>  <br />
-                                    {{person.Email}}, {{person.City}} ({{person.Distance}} miles) <br />
-                                    <a href="" class="btn-link"> <span class="label label-info">Connect</span></a>
+                                    <span ng-show="{{person.CarPool}}" class=" glyphicon glyphicon-plane"></span>
+                                    <span>
+                                        {{person.Client}}, {{person.Tech}},
+                                        {{person.City}} ({{person.Distance}} miles)
+                                    </span><br />
+
+
+                                    <a href="mailto:{{person.Email}}" class="btn-link"> <span class="label label-info">Connect</span></a>
                                 </td>
                                 <td>
                                     <a href="#" class="thumbnail" style="border:0">
@@ -22,7 +30,19 @@
                         </thead>
                     </table>
                 </div>
-                <div class="panel-footer"><a href="">Load more...</a></div>
+                <div class="panel-footer">
+                    <a href="">Load more...</a>
+                    <div class="pull-right">
+                        Sort by
+                        <select ng-model="Sortddl">
+                            <option>Name</option>
+                            <option selected>Distance</option>
+                            <option>Client</option>
+                            <!--<option>City</option>-->
+                            <option>CarPool</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-xs-6 col-md-6">
