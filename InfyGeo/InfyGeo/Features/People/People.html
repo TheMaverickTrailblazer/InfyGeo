@@ -48,7 +48,7 @@
         <div class="col-xs-6 col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">{{CompanionTitle}}</div>
-                <div class="panel-body">
+                <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
 
                     <table class="table table-striped">
                         <thead>
@@ -67,6 +67,10 @@
         </div>
     </div>
 
+    <div>
+        <a href="" class="btn-info" ng-click="showMap()">map</a>
+        <div id="map"></div>
+    </div>
     <div class="text-center">
         <a href="/" class="btn btn-info">Back</a>
     </div>

@@ -8,16 +8,17 @@ var searchkeyword;
 var searchtypes;
 var searchRadius;
 
-function initialize(searchLocation, keyword, types, radius, placesList) {
+function initialize(searchLocation, keyword, types, radius, placesList, fromPlaces) {
     searchkeyword = keyword;
     searchtypes = types;
     searchRadius = radius;
+    if (!fromPlaces) {
+        if (!placesList) {
+            var placesList = document.getElementById('results');
+        }
 
-    if (!placesList) {
-        var placesList = document.getElementById('results');
+        placesList.innerHTML = "";
     }
-
-    placesList.innerHTML = "";
 
     var geocoder = new google.maps.Geocoder();
     var address = searchLocation.toString().toLowerCase() + ', us';
@@ -51,7 +52,16 @@ function initialize(searchLocation, keyword, types, radius, placesList) {
 
         infoWindow = new google.maps.InfoWindow();
         service = new google.maps.places.PlacesService(map);
-        google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+        if (!fromPlaces) {
+            google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+        }
+        else {
+            var marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(lat, lng),
+                icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png'
+            });
+        }
     });
 }
 

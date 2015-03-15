@@ -33,19 +33,28 @@
 
                $scope.NearbyTitle = "Nearby People";
                $scope.CompanionTitle = "Travel Companion";
+               
 
                $http.get('Features/People/PeopleService.txt').success(function (data) {
                    $scope.People = data;
                });
+
+
+               $http.get('Features/People/CompanionService.txt').success(function (data) {
+                   $scope.Comapanions = data;
+               });
+
 
                $scope.filterPeople = function (person) {
                    //alert($scope.Location);
                    return person.Distance < 50 || person.Location == $scope.Location;
                };
 
-               $http.get('Features/People/CompanionService.txt').success(function (data) {
-                   $scope.Comapanions = data;
-               });
+               $scope.showMap = function () {
+                   alert($scope.Location);
+                   initialize($scope.Location, null, null, '', '',true);
+               };
+
            }]).controller('KeyInfoController', ['$scope', '$http', function ($scope, $http) {
                delete $http.defaults.headers.common['X-Requested-With'];
                var location = $scope.Location;
