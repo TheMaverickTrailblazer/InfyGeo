@@ -51,8 +51,8 @@
                };
 
                $scope.showMap = function () {
-                   alert($scope.Location);
-                   initialize($scope.Location, null, null, '', '',true);
+                   var placesArr = ['plainsboro', 'princeton'];
+                   initializeMapLocation(placesArr);
                };
 
            }]).controller('KeyInfoController', ['$scope', '$http', function ($scope, $http) {
