@@ -5,6 +5,7 @@
                $routeProvider.when('/Offices', { templateUrl: 'Features/Offices/Offices.html' })
                $routeProvider.when('/keyinfo', { templateUrl: 'Features/keyinfo/keyinfo.html' })
                $routeProvider.when('/peopledata', { templateUrl: 'PeopleService.json' })
+
                $routeProvider.when('/sparsh', { templateUrl: 'Shared/Sparsh.html' })
                $routeProvider.when('/itravel', { templateUrl: 'Shared/iTravel.html' })
                $routeProvider.when('/payworld', { templateUrl: 'Shared/Payworld.html' })
@@ -106,8 +107,8 @@
                                              $scope.showSchools = false;
 
                                              $scope.showCarRentals = false;
+
                                          }).error(function (data, status, headers, config) {
-                                             alert(data);
                                          });
 
 
@@ -120,11 +121,11 @@
                }
 
                $scope.searchSchools = function () {
-                   var url = "http://api.education.com/service/service.php?f=schoolSearch&key=ad81ba5cdeda1c5b31a0378de52ec7f8&sn=sf&v=4&zip=08536&Resf=json";
-               $http.get(url).
-                                 success(function (data, status, headers, config) {
-                                     // this callback will be called asynchronously
-                                     // when the response is available
+                   var url = "UserProfile.txt";
+                   $http.get(url).
+                                     success(function (data, status, headers, config) {
+                                         // this callback will be called asynchronously
+                                         // when the response is available
                                          $scope.schools = [{ "school": { "schoolid": "25017", "schoolname": "Community Middle School", "zip": "08536", "address": "55 Grovers Mill Rd", "city": "Plainsboro", "districtid": "4015", "districtleaid": "3417700", "AYPResult": "yes", "AYPResultYear": "2011", "distance": 25017, "enrollment": { "total": 1235 }, "gradelevel": "Middle", "gradesserved": "6-8", "latitude": 40.3221245, "longitude": -74.5907059, "phonenumber": "(609) 716-5300", "schooldistrictname": "West Windsor-Plainsboro Regional School District", "schooltype": "Public", "state": "NJ", "studentteacherratio": { "total": 12 }, "website": null, "nces_id": "341770006012", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/community-m-s-\/", "testrating_text": "Education.com TestRating 9", "testrating_image_large": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/school-rating9.png", "testrating_image_small": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/small-school-rating9.png", "testrating_year": "2011" } }, { "school": { "schoolid": "25019", "schoolname": "John V B Wicoff Elementary School", "zip": "08536", "address": "Plainsboro Rd", "city": "Plainsboro", "districtid": "4015", "districtleaid": "3417700", "AYPResult": "yes", "AYPResultYear": "2011", "distance": 25019, "enrollment": { "total": 465 }, "gradelevel": "Elementary", "gradesserved": "K-3", "latitude": 40.3319588, "longitude": -74.5965347, "phonenumber": "(609) 716-5450", "schooldistrictname": "West Windsor-Plainsboro Regional School District", "schooltype": "Public", "state": "NJ", "studentteacherratio": { "total": 15 }, "website": null, "nces_id": "341770003264", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/john-v-b-wicoff-elementary-school\/", "testrating_text": "Education.com TestRating 10", "testrating_image_large": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/school-rating10.png", "testrating_image_small": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/small-school-rating10.png", "testrating_year": "2011" } }, { "school": { "schoolid": "25021", "schoolname": "Millstone River School", "zip": "08536", "address": "75 Grovers Mill Rd", "city": "Plainsboro", "districtid": "4015", "districtleaid": "3417700", "AYPResult": "no", "AYPResultYear": "2010", "distance": 25021, "enrollment": { "total": 889 }, "gradelevel": "Elementary", "gradesserved": "4-5", "latitude": 40.3255196, "longitude": -74.5946732, "phonenumber": "(609) 716-5500", "schooldistrictname": "West Windsor-Plainsboro Regional School District", "schooltype": "Public", "state": "NJ", "studentteacherratio": { "total": 15 }, "website": null, "nces_id": "341770006077", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/millstone-river-school\/", "testrating_text": "Education.com TestRating 9", "testrating_image_large": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/school-rating9.png", "testrating_image_small": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/small-school-rating9.png", "testrating_year": "2011" } }, { "school": { "schoolid": "25023", "schoolname": "Town Center Elementary School-Plainsboro", "zip": "08536", "address": "700 Wyndhurst Dr", "city": "Plainsboro", "districtid": "4015", "districtleaid": "3417700", "AYPResult": "yes", "AYPResultYear": "2009", "distance": 25023, "enrollment": { "total": 664 }, "gradelevel": "Elementary", "gradesserved": "K-3", "latitude": 40.3355942, "longitude": -74.5842667, "phonenumber": "(609) 716-8330", "schooldistrictname": "West Windsor-Plainsboro Regional School District", "schooltype": "Public", "state": "NJ", "studentteacherratio": { "total": 16 }, "website": null, "nces_id": "341770000505", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/town-center-elem-sch-at-plainsboro\/", "testrating_text": "Education.com TestRating 8", "testrating_image_large": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/school-rating8.png", "testrating_image_small": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/small-school-rating8.png", "testrating_year": "2011" } }, { "school": { "schoolid": "25025", "schoolname": "Wwindsor-Plainsboro North High School", "zip": "08536", "address": "90 Grovers Mill Rd", "city": "Plainsboro", "districtid": "4015", "districtleaid": "3417700", "AYPResult": "yes", "AYPResultYear": "2009", "distance": 25025, "enrollment": { "total": 1598 }, "gradelevel": "High", "gradesserved": "9-12", "latitude": 40.3240128, "longitude": -74.5997772, "phonenumber": "(609) 716-5100", "schooldistrictname": "West Windsor-Plainsboro Regional School District", "schooltype": "Public", "state": "NJ", "studentteacherratio": { "total": 14 }, "website": null, "nces_id": "341770000191", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/west-windsor-plainsboro-hs-north\/", "testrating_text": "Education.com TestRating 9", "testrating_image_large": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/school-rating9.png", "testrating_image_small": "http:\/\/schools.education.com\/themes\/sky\/i\/schoolfinder\/images\/small-school-rating9.png", "testrating_year": "2011" } }, { "school": { "schoolid": "110791", "schoolname": "Child Development Center At Bristol-myers Squibb", "zip": "08536", "address": "777 Scudders Mill Rd", "city": "Plainsboro", "districtid": "16578", "districtleaid": null, "AYPResult": null, "AYPResultYear": null, "distance": 110791, "enrollment": { "total": 99 }, "gradelevel": "Preschool,Elementary", "gradesserved": "PK,K", "latitude": 40.3426056, "longitude": -74.605278, "phonenumber": "(609) 897-3700", "schooldistrictname": "NJ Private Schools", "schooltype": "Private, Early Childhood Program\/Day Care Center", "state": "NJ", "studentteacherratio": { "total": 50 }, "website": null, "nces_id": "A0107181", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/child-dev-ctr-bristol-myers\/", "testrating_text": "", "testrating_image_large": null, "testrating_image_small": null, "testrating_year": "" } }, { "school": { "schoolid": "234386", "schoolname": "Montessori Corner School At Princeton Meadows", "zip": "08536", "address": "666 Plainsboro Rd Building 2100", "city": "Plainsboro", "districtid": "16578", "districtleaid": null, "AYPResult": null, "AYPResultYear": null, "distance": 234386, "enrollment": { "total": 27 }, "gradelevel": "Preschool,Elementary", "gradesserved": "PK,K", "latitude": 40.3288956, "longitude": -74.576622, "phonenumber": "(609) 799-6668", "schooldistrictname": "NJ Private Schools", "schooltype": "Private, Montessori", "state": "NJ", "studentteacherratio": { "total": 3 }, "website": null, "nces_id": "A0302101", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/montessori-corner-school-at-princeton-meadows\/", "testrating_text": "", "testrating_image_large": null, "testrating_image_small": null, "testrating_year": "" } }, { "school": { "schoolid": "234387", "schoolname": "Montessori Country Day School", "zip": "08536", "address": "72 Grovers Mill Rd", "city": "Plainsboro", "districtid": "16578", "districtleaid": null, "AYPResult": null, "AYPResultYear": null, "distance": 234387, "enrollment": { "total": 60 }, "gradelevel": "Preschool,Elementary", "gradesserved": "PK,K-5", "latitude": 40.3227272, "longitude": -74.5935822, "phonenumber": "(609) 799-7990", "schooldistrictname": "NJ Private Schools", "schooltype": "Private, Montessori", "state": "NJ", "studentteacherratio": { "total": 4 }, "website": null, "nces_id": "A0701528", "url": "http:\/\/schools.education.com\/schoolfinder\/us\/new-jersey\/plainsboro\/montessori-country-day-school\/", "testrating_text": "", "testrating_image_large": null, "testrating_image_small": null, "testrating_year": "" } }];
 
                                          $scope.showHotels = false;
@@ -132,12 +133,12 @@
                                          $scope.showSchools = true;
 
                                          $scope.showCarRentals = false;
-                                 }).
-                                 error(function (data, status, headers, config) {
-                                     // called asynchronously if an error occurs
-                                     // or server returns response with an error status.
-                                     alert('an error occured');
-                                 });
+                                     }).
+                                     error(function (data, status, headers, config) {
+                                         // called asynchronously if an error occurs
+                                         // or server returns response with an error status.
+                                         alert('an error occured');
+                                     });
                }
 
            }]).controller('OfficeController', ['$scope', function ($scope) {
@@ -154,18 +155,13 @@
                    types = ['establishment'];
                    initialize(searchLocation, keyword, types);
                }
-           }]);
+           }]).factory('LocationService', function ($rootScope) {
+               var service = {};
+               service.Location = "";
 
-
-//.directive('a', function() {
-//    return {
-//        restrict: 'E',
-//        link: function(scope, elem, attrs) {
-//            if(attrs.ngClick || attrs.href === '' || attrs.href === '#'){
-//                elem.on('click', function(e){
-//                    e.preventDefault();
-//                });
-//            }
-//        }
-//    };
-//})
+               service.changeLocation = function (value) {
+                   this.Location = value;
+                   $rootScope.$broadcast("locationChanged");
+               }
+               return service;
+           });

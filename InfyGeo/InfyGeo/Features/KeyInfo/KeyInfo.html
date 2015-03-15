@@ -19,6 +19,7 @@
             </a>
         </div>
     </div>
+
     <div class="row" ng-show="showHotels">
         <div ng-repeat="hotel in hotels">
             <div class="card col-md-6">
@@ -27,9 +28,9 @@
                 <p>{{hotel.name}}</p>
                 <p>{{hotel.address1}},{{hotel.city}}</p>
                 <p>From <strong>${{hotel.lowRate}} - ${{hotel.highRate}}</strong></p>
-                <p ng-show="hotel.showDetails"><i><strong>{{if(hotel.Recommend)}}{{hotel.Discount}}</i> | {{hotel.Recommend}}</strong></p>
-                <p><strong>Trip Advisor Rating : </strong><img src="{{hotel.tripAdvisorRatingUrl}}" alt="{{hotel.tripAdvisorRating}}" /></p
-                
+                <p ng-show="hotel.showDetails"><strong><i>{{if(hotel.Recommend)}}{{hotel.Discount}}</i> | {{hotel.Recommend}}</strong></p>
+                <p><strong>Trip Advisor Rating : </strong><img src="{{hotel.tripAdvisorRatingUrl}}" alt="{{hotel.tripAdvisorRating}}" /></p>
+
             </div>
         </div>
     </div>
@@ -48,5 +49,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
