@@ -107,7 +107,7 @@ function createMarker(place) {
     var placesList = document.getElementById('results');
 
     if (place.vicinity.toString().toLowerCase().indexOf('hunters') != -1) {
-        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity +  '<br/>' + '<strong>10 Infoscians working with same client as you stay here.</strong> </p>';
+        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '<br/>' + '<strong>10 Infoscians working with same client as you stay here.</strong> </p>';
     }
     else if (place.vicinity.toString().toLowerCase().indexOf('fox run drive') != -1) {
         placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '<br/>' + '<strong>30 Infoscians working with same client as you stay here.</strong> </p>';
@@ -126,7 +126,51 @@ function createMarker(place) {
             infoWindow.open(map, marker);
         });
     });
+}
 
+function initializeMapLocation(placesArr) {
+    for (var i = 0; i < placesArr.length; i++) {
+        var geocoder = new google.maps.Geocoder();
+        var address = placesArr[i].toString().toLowerCase() + ', us';
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                lat = results[0].geometry.location.lat();
+
+                lng = results[0].geometry.location.lng();
+            }
+
+            if (!map) {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    center: new google.maps.LatLng(lat, lng),
+                    zoom: 9,
+                    styles: [
+                      {
+                          stylers: [
+                            { visibility: 'simplified' }
+                          ]
+                      },
+                      {
+                          elementType: 'labels',
+                          stylers: [
+                            { visibility: 'on' }
+                          ]
+                      }
+                    ]
+                });
+
+                infoWindow = new google.maps.InfoWindow();
+                service = new google.maps.places.PlacesService(map);
+
+            }
+            var marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(lat, lng),
+                icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png'
+            });
+        });
+    }
 }
 
 
