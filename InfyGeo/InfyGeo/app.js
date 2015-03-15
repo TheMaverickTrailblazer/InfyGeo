@@ -106,7 +106,7 @@
 
                                              $scope.showSchools = false;
 
-                                             $scope.showCarRentals = false;
+                                             $scope.showApartments = false;
 
                                          }).error(function (data, status, headers, config) {
                                          });
@@ -132,13 +132,34 @@
 
                                          $scope.showSchools = true;
 
-                                         $scope.showCarRentals = false;
+                                         $scope.showApartments = false;
                                      }).
                                      error(function (data, status, headers, config) {
                                          // called asynchronously if an error occurs
                                          // or server returns response with an error status.
                                          alert('an error occured');
                                      });
+               }
+
+               $scope.searchApartments = function () {
+                   var searchLocation = $scope.Location;
+                   $scope.showApartments = true;
+                   $scope.showHotels = false;
+                   $scope.showSchools = false;
+                   var rad5Elem = document.getElementById("rad5");
+                   var rad10Elem = document.getElementById("rad10");
+                   var rad15Elem = document.getElementById("rad15");
+                   var rad20Elem = document.getElementById("rad20");
+                   var radius = 0;
+                   radius = (rad5Elem.checked) ? 5 * 1.6 * 1000 : 0;
+                   if (radius == 0)
+                       radius = (rad10Elem.checked) ? 10 * 1.6 * 1000 : 0;
+                   if (radius == 0)
+                       radius = (rad15Elem.checked) ? 15 * 1.6 * 1000 : 0;
+                   if (radius == 0)
+                       radius = (rad20Elem.checked) ? 20 * 1.6 * 1000 : 0;
+
+                   initialize(searchLocation, 'apartments', '', radius);
                }
 
            }]).controller('OfficeController', ['$scope', function ($scope) {

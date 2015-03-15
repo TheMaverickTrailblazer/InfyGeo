@@ -6,9 +6,12 @@ var lat;
 var lng;
 var searchkeyword;
 var searchtypes;
-function initialize(searchLocation, keyword, types) {
+var searchRadius;
+
+function initialize(searchLocation, keyword, types, radius) {
     searchkeyword = keyword;
     searchtypes = types;
+    searchRadius = radius;
 
     var geocoder = new google.maps.Geocoder();
     var address = searchLocation.toString().toLowerCase() + ', us';
@@ -24,7 +27,7 @@ function initialize(searchLocation, keyword, types) {
         map = new google.maps.Map(document.getElementById('map'), {
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: new google.maps.LatLng(lat, lng),
-            zoom: 9,
+            zoom: searchtypes == '' ? 12 : 9,
             styles: [
               {
                   stylers: [
@@ -47,15 +50,24 @@ function initialize(searchLocation, keyword, types) {
 }
 
 function performSearch() {
-    var request = {
-        location: new google.maps.LatLng(lat, lng),
-        radius: 30000,
-        //keyword: 'social+security',
-        keyword: searchkeyword,
-        //types:['local_government_office']
-        types: searchtypes
+    if (searchtypes != '') {
+        var request = {
+            location: new google.maps.LatLng(lat, lng),
+            radius: 30000,
+            //keyword: 'social+security',
+            keyword: searchkeyword,
+            //types:['local_government_office']
+            types: searchtypes
+        };
+    }
+    else {
+        var request = {
+            location: new google.maps.LatLng(lat, lng),
+            radius: searchRadius,
+            keyword: searchkeyword
+        };
 
-    };
+    }
     service.nearbySearch(request, callback);
 }
 
@@ -85,8 +97,8 @@ function createMarker(place) {
             if (status != google.maps.places.PlacesServiceStatus.OK) {
                 return;
             }
-            
-            infoWindow.setContent(result.name + "\n"+ result.formatted_address);
+
+            infoWindow.setContent(result.name + "\n" + result.formatted_address);
             infoWindow.open(map, marker);
         });
     });
