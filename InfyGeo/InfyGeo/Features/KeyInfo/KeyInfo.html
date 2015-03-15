@@ -1,35 +1,52 @@
 ﻿<div ng-controller="KeyInfoController" class="container">
     <div class="row">
         <div class="col-md-4 col-sm-6 col-xs-12 ">
-            <a href="/#/Offices/" class="btn btn-info btn-block">
+            <a class="btn btn-info btn-block" ng-click="searchHotels()" href="" ng-href="">
                 <h3>Hotels</h3>
                 <span>Stay cosy</span>
             </a>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-            <a href="/#/Offices/" class="btn btn-warning btn-block">
+            <a class="btn btn-warning btn-block" ng-click="searchRentals()" href="" ng-href="">
                 <h3>Rentals</h3>
-                <span>Get moving</span>
+                <span>Vroom around</span>
             </a>
         </div>
         <div class="col-md-4  col-sm-12 col-xs-12">
-            <a href="/#/Offices/" class="btn btn-danger btn-block">
-                <h3>Landmarks</h3>
-                <span>Weekends Haaaa</span>
+            <a class="btn btn-danger btn-block" ng-click="searchSchools()" href="" ng-href="">
+                <h3>Schools</h3>
+                <span>A B C D...</span>
             </a>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="showHotels">
         <div ng-repeat="hotel in hotels">
             <div class="card col-md-6">
                 <!--<div class="card">-->
                 <div style="float:left; padding-right:10px"><img src=http://images.travelnow.com/{{hotel.thumbNailUrl}} /></div>
                 <p>{{hotel.name}}</p>
                 <p>{{hotel.address1}},{{hotel.city}}</p>
-                <p>From <strong>${{hotel.lowRate}} - {{hotel.highRate}}</strong></p>
-                <p><strong>Trip Advisor Rating : </strong><img src="{{hotel.tripAdvisorRatingUrl}}" alt="{{hotel.tripAdvisorRating}}" /></p>
+                <p>From <strong>${{hotel.lowRate}} - ${{hotel.highRate}}</strong></p>
+                <p ng-show="hotel.showDetails"><i><strong>{{if(hotel.Recommend)}}{{hotel.Discount}}</i> | {{hotel.Recommend}}</strong></p>
+                <p><strong>Trip Advisor Rating : </strong><img src="{{hotel.tripAdvisorRatingUrl}}" alt="{{hotel.tripAdvisorRating}}" /></p
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="showSchools">
+        <div ng-repeat="school in schools">
+            <div class="card col-md-6">
+                <!--<div class="card">-->
+                <p><b><a href="{{school.school.url}}">{{school.school.schoolname}}</a></b></p>
+                <p>{{school.school.address}},Phone : {{school.school.phonenumber}}</p>
+                <p><b>From :</b> {{school.school.gradelevel }} - {{school.school.gradesserved }}</p>
+                <p><strong>School type : </strong>{{school.school.schooltype}}</p>
+                <p><strong>Student/Teacher Ratio: </strong>{{school.school.studentteacherratio.total}}</p>
+                <p><strong>Rating : </strong><img src="{{school.school.testrating_image_large}}" /></p>
                 <!--</div>-->
             </div>
         </div>
     </div>
+</div>
 </div>

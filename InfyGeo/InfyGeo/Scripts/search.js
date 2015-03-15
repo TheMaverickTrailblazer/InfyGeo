@@ -4,7 +4,12 @@ var service;
 var searchLocation;
 var lat;
 var lng;
-function initialize(searchLocation) {
+var searchkeyword;
+var searchtypes;
+function initialize(searchLocation, keyword, types) {
+    searchkeyword = keyword;
+    searchtypes = types;
+
     var geocoder = new google.maps.Geocoder();
     var address = searchLocation.toString().toLowerCase() + ', us';
     geocoder.geocode({ 'address': address }, function (results, status) {
@@ -42,14 +47,13 @@ function initialize(searchLocation) {
 }
 
 function performSearch() {
-   
     var request = {
         location: new google.maps.LatLng(lat, lng),
         radius: 30000,
         //keyword: 'social+security',
-        keyword:'Infosys+Technologies+Ltd',
+        keyword: searchkeyword,
         //types:['local_government_office']
-        types:['establishment']
+        types: searchtypes
 
     };
     service.nearbySearch(request, callback);

@@ -57,6 +57,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="index.html" />
+    <Content Include="UserProfile.txt" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,7 +82,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49601</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
