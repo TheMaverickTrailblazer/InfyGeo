@@ -46,7 +46,7 @@
 
 
                $scope.filterPeople = function (person) {
-                   //alert($scope.Location);
+                   
                    return person.Distance < 50 || person.Location == $scope.Location;
                };
 
@@ -54,6 +54,14 @@
                    // alert(city);
                    initialize(city, null, null, '', '', true);
                };
+               $scope.showAllMap = function (city) {
+                   //alert('Trying to show all in map');
+                   var locationList = ['Plainsboro', 'Hopewell Township', 'Edison', 'Jersey City'];
+                   initializeMapLocation(locationList);
+               };
+
+               //locationList = ['Plainsboro', 'Hopewell', 'New York'];
+               //initializeMapLocation(locationList);
 
            }]).controller('KeyInfoController', ['$scope', '$http', function ($scope, $http) {
                delete $http.defaults.headers.common['X-Requested-With'];
