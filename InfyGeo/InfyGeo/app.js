@@ -58,6 +58,7 @@
            }]).controller('KeyInfoController', ['$scope', '$http', function ($scope, $http) {
                delete $http.defaults.headers.common['X-Requested-With'];
                var location = $scope.Location;
+               location = 'Plainsboro';
                $scope.searchHotels = function () {
                    var url = "http://dev.api.ean.com/ean-services/rs/hotel/v3/list?cid=38998&apiKey=53s3gvvk29x99zvt54zmnnzh&minorRev=28&customerUserAgent=WEB_SITE&customerIpAddress=73.193.252.64&locale=en_US&currencyCode=USD&city=" + location + "&stateProvinceCode=NJ&countryCode=US&arrivalDate=03/30/2015";
                    $http.get(url).
@@ -181,15 +182,20 @@
                searchLocation = $scope.Location;
                var keyword = '';
                var types = '';
+               $scope.showOfficeResults = false;
                $scope.searchSSN = function () {
+                   $scope.showOfficeResults = false;
                    keyword = 'social+security+office';
                    types = ['local_government_office'];
                    initialize(searchLocation, keyword, types);
+                   $scope.showOfficeResults = true;
                }
                $scope.searchInfy = function () {
+                   $scope.showOfficeResults = false;
                    keyword = 'Infosys+Technologies+Ltd';
                    types = ['establishment'];
                    initialize(searchLocation, keyword, types);
+                   $scope.showOfficeResults = true;
                }
            }]).factory('LocationService', function ($rootScope) {
                var service = {};

@@ -25,3 +25,10 @@ overflow:hidden;
   border:3px solid #b7cee2;
   margin:0 auto;
 }
+
+
+.ruler {
+    height: 1px;
+    background:#b7cee2;
+    border:0;
+}

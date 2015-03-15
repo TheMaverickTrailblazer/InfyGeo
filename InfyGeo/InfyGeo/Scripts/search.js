@@ -107,13 +107,13 @@ function createMarker(place) {
     var placesList = document.getElementById('results');
 
     if (place.vicinity.toString().toLowerCase().indexOf('hunters') != -1) {
-        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '<br/>' + '<strong>10 Infoscians working with same client as you stay here.</strong> </p>';
+        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '<br/>' + '<strong>10 Infoscians working with same client as you stay here.</strong> </p> <hr class="ruler"/>';
     }
     else if (place.vicinity.toString().toLowerCase().indexOf('fox run drive') != -1) {
-        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '<br/>' + '<strong>30 Infoscians working with same client as you stay here.</strong> </p>';
+        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '<br/>' + '<strong>30 Infoscians working with same client as you stay here.</strong> </p> <hr class="ruler"/>';
     }
     else {
-        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '</p>';
+        placesList.innerHTML += '<p class="' + place.types[0] + '">' + place.name + '<br/>' + place.vicinity + '</p> <hr class="ruler"/>';
     }
 
     google.maps.event.addListener(marker, 'click', function () {
