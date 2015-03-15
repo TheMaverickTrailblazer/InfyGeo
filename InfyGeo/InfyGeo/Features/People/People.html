@@ -5,12 +5,13 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     {{NearbyTitle}} <span class="badge">{{LocalPeople.length}}</span>
-
+                    
+                    <span class="pull-right"><a href="" ng-click="showAllMap()">Show All in Map</a></span>
                 </div>
                 <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
                     <table class="table table-striped">
                         <thead>
-                            <tr ng-repeat="person in LocalPeople = (People| filter:filterPeople) | orderBy: Sortddl">
+                            <tr ng-repeat="person in LocalPeople = (People| filter:filterPeople | filter: SearchKey ) | orderBy: Sortddl">
                                 <td class="icon-bar">
                                     <span class="text-info"><b> {{person.Name}}</b></span>  <br />
                                     <span ng-show="{{person.CarPool}}" class=" glyphicon glyphicon-plane"></span>
@@ -33,7 +34,8 @@
                     </table>
                 </div>
                 <div class="panel-footer">
-                    <a href="">Load more...</a>
+                    <span> <a href="">Load more...</a>or Search</span>
+                    <span class=""><input type="text" ng-model="SearchKey" placeholder="Search People" /></span>
                     <div class="pull-right">
                         Sort by
                         <select ng-model="Sortddl">
@@ -44,6 +46,7 @@
                             <option>CarPool</option>
                         </select>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -65,7 +68,7 @@
                         <td class="icon-bar">
                             <span class="glyphicon glyphicon-user"></span>
                             <span class="text-info"><b>{{person.Name}}</b></span>  <br />
-                            {{person.Date}}, {{person.Airport}} {{person.Arrival}} from {{person.Departure}}
+                            Travelling on <b> {{person.Date}}</b>, to airport <b>{{person.Airport}} - {{person.Arrival}}</b> from <b>{{person.Departure}}</b>
                         </td>
                     </tr>
                 </thead>
